@@ -11,3 +11,5 @@ Proyecto tiendita
   
   COMBOBOX EVENT: NO LO COPIES ASI TAL CUAL YA QUE DEPENDE DE TUS IMAGENES Y EL NOMBRE DE TUS FRAME();
   156- 235.
+  
+  Te di las lineas de codigo mas importantes, IGNORA LAS DEMAS es codigo que dependera del nombre que le des a las cosas y las cosas que pones

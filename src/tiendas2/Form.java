@@ -49,6 +49,7 @@ public class Form extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setText("EDCarlitos-Company");
 
         jLabel2.setText("Descripcion");
@@ -56,6 +57,8 @@ public class Form extends javax.swing.JFrame {
         jLabel3.setText("Precio Unitario");
 
         jLabel4.setText("Cantidad");
+
+        txtPrecioUni.setEnabled(false);
 
         cbProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Memoria RAM  8GB XPG RGB", "SSD Kingston A400, 240GB, SATA III", "Corsair HS35", "Teclado Mecanico HyperX Alloy FPS", "Mause Optico Logitech", "Corsair Virtuoso XT", "Fuente de Poder Aerocool Cylon 500 80+ Bronze", "Ryzen 2200G", "MotherBoard B450 a-ii Asus-Prime", "Monitor Curvo 165 hz MSI", "Kit 3 ventiladores Corsair", "HDD 1TB", "Celular 4 RAM 64GB Motorola", "SSD Kingston NV1 NVMe, 250GB, PCI Express 3.0, M.2", "Nvidia GTX 1650 4GB Gddr6 Asus Tuf Gaming" }));
         cbProductos.addItemListener(new java.awt.event.ItemListener() {
@@ -80,35 +83,41 @@ public class Form extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                .addComponent(txtPrecioUni))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCalcular)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioUni, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(cbProductos, 0, 1, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCalcular)
+                                .addGap(32, 32, 32)))
                         .addComponent(lImage, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)))
-                .addContainerGap())
+                        .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(22, 22, 22)
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(cbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,11 +129,10 @@ public class Form extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,7 +211,31 @@ public class Form extends javax.swing.JFrame {
                 lImage.setIcon(algo);
                 txtPrecioUni.setText("5000");
                 break;
-                
+            case "Kit 3 ventiladores Corsair":
+                algo = new ImageIcon(getClass().getResource("KitCorsair.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("1000");
+                break;
+            case "HDD 1TB": 
+                algo = new ImageIcon(getClass().getResource("HDD.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("800");
+                break;
+            case "Celular 4 RAM 64GB Motorola":
+                algo = new ImageIcon(getClass().getResource("Celular.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("4000");
+                break;
+            case "SSD Kingston NV1 NVMe, 250GB, PCI Express 3.0, M.2":
+                algo = new ImageIcon(getClass().getResource("mvm.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("900");
+                break;
+            case "Nvidia GTX 1650 4GB Gddr6 Asus Tuf Gaming":
+                algo = new ImageIcon(getClass().getResource("1650.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("6000");
+                break;
         }
 
 

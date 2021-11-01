@@ -6,6 +6,7 @@
 package tiendas2;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 public class Form extends javax.swing.JFrame {
 
     DefaultListModel modelo = new DefaultListModel();
+    ImageIcon algo;
 
     /**
      * Creates new form Form
@@ -43,6 +45,7 @@ public class Form extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lFinal = new javax.swing.JList<>();
+        lImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +58,11 @@ public class Form extends javax.swing.JFrame {
         jLabel4.setText("Cantidad");
 
         cbProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Memoria RAM  8GB XPG RGB", "SSD Kingston A400, 240GB, SATA III", "Corsair HS35", "Teclado Mecanico HyperX Alloy FPS", "Mause Optico Logitech", "Corsair Virtuoso XT", "Fuente de Poder Aerocool Cylon 500 80+ Bronze", "Ryzen 2200G", "MotherBoard B450 a-ii Asus-Prime", "Monitor Curvo 165 hz MSI", "Kit 3 ventiladores Corsair", "HDD 1TB", "Celular 4 RAM 64GB Motorola", "SSD Kingston NV1 NVMe, 250GB, PCI Express 3.0, M.2", "Nvidia GTX 1650 4GB Gddr6 Asus Tuf Gaming" }));
+        cbProductos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbProductosItemStateChanged(evt);
+            }
+        });
 
         btnCalcular.setText("Calcular");
         btnCalcular.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,38 +88,43 @@ public class Form extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                 .addComponent(txtPrecioUni))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)
-                                .addComponent(btnCalcular))
-                            .addComponent(cbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 107, Short.MAX_VALUE)))
+                                .addComponent(cbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCalcular)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(lImage, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPrecioUni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCalcular))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(cbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCalcular))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtPrecioUni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -121,25 +134,80 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
         String canti = txtCantidad.getText();
         String preUni = txtPrecioUni.getText();
-       
-        
 
-       
-        if (canti.isEmpty() || preUni.isEmpty()){
-        JOptionPane.showMessageDialog(null, "Llena todos los campos");
-        }else{
-        int cantidad = Integer.parseInt(canti);
-        int precioUni = Integer.parseInt(preUni);
-        double total = cantidad * precioUni;
-        modelo.addElement("Cantidad: " + cantidad + " Producto: " + cbProductos.getSelectedItem()+ " Total: " + total);
-        txtCantidad.setText("");
-        txtPrecioUni.setText("");
+        if (canti.isEmpty() || preUni.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Llena todos los campos");
+        } else {
+            int cantidad = Integer.parseInt(canti);
+            int precioUni = Integer.parseInt(preUni);
+            double total = cantidad * precioUni;
+            modelo.addElement("Cantidad: " + cantidad + " Producto: " + cbProductos.getSelectedItem() + " Total: " + total);
+            txtCantidad.setText("");
+            txtPrecioUni.setText("");
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_btnCalcularMouseClicked
+
+    private void cbProductosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbProductosItemStateChanged
+        // TODO add your handling code here:
+        String contenedor = cbProductos.getSelectedItem().toString();
+        switch (contenedor) {
+            case "Memoria RAM  8GB XPG RGB":
+                algo = new ImageIcon(getClass().getResource("Ram.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("900");
+                break;
+            case "SSD Kingston A400, 240GB, SATA III":
+                algo = new ImageIcon(getClass().getResource("ssdKing.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("650");
+                break;
+            case "Corsair HS35":
+                algo = new ImageIcon(getClass().getResource("hs35.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("750");
+                break;
+            case "Teclado Mecanico HyperX Alloy FPS":
+                algo = new ImageIcon(getClass().getResource("TecladoALLOY.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("1600");
+                break;
+            case "Mause Optico Logitech":
+                algo = new ImageIcon(getClass().getResource("MauseLogitech.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("800");
+                break;
+            case "Corsair Virtuoso XT": 
+                algo = new ImageIcon(getClass().getResource("VirtuosoCorsair.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("3500");
+                break;
+            case "Fuente de Poder Aerocool Cylon 500 80+ Bronze":
+                algo = new ImageIcon(getClass().getResource("Fuente500w.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("900");
+                break;
+            case "Ryzen 2200G":
+                algo = new ImageIcon(getClass().getResource("Ryzen.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("2500");
+                break;
+            case "MotherBoard B450 a-ii Asus-Prime":
+                algo = new ImageIcon(getClass().getResource("asusM.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("2700");
+                break;
+            case "Monitor Curvo 165 hz MSI":
+                algo = new ImageIcon(getClass().getResource("MsiMonitor.jpg"));
+                lImage.setIcon(algo);
+                txtPrecioUni.setText("5000");
+                break;
+                
+        }
+
+
+    }//GEN-LAST:event_cbProductosItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -185,6 +253,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lFinal;
+    private javax.swing.JLabel lImage;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtPrecioUni;
     // End of variables declaration//GEN-END:variables
